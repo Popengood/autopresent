@@ -1,0 +1,58 @@
+@import "_reset.scss";
+
+body,
+button,
+input,
+select,
+textarea {
+  font: 14px/20px Roboto, "Helvetica CY", sans-serif;
+}
+body {
+  color: #333;
+  background: #cdcdb0;
+}
+.wrapper {
+  height: 100vh;
+  display: grid;
+  grid-template-areas: "header" "container" "footer";
+  grid-template-rows: 130px 1fr 90px;
+  grid-template-columns: 1fr;
+  grid-gap: 0;
+}
+
+.wrap,
+.container {
+  width: 1235px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+.ai-center {
+  align-items: center;
+}
+.jc-between {
+  justify-content: space-between;
+}
+.jc-center {
+  justify-content: center;
+}
+
+.white-box {
+  margin-bottom: 31px;
+  padding: 15px 20px 19px;
+  border: solid 1px #e8e8d4;
+  border-radius: 6px;
+  background: #f9f9f1;
+}
+
+@import "_header.scss";
+@import "_aside.scss";
+@import "_footer.scss";
+
+.container {
+  grid-area: container;
+  padding: 19px 25px;
+  background: #f0efdb;
+}
