@@ -2,17 +2,13 @@ const mysql = require('mysql2');
 const bluebird = require('bluebird');
 const express = require('express');
 const bodyParser = require('body-parser');
+const config = require('../server/config.js');
 
 const app = express();
 
 // const commentRoutes = require('./routes/comment.routes');
 
-const connection = mysql.createConnection({
-  host: 'localhost',
-  database: 'db_damyen_1',
-  user: 'root',
-  password: '',
-});
+const connection = mysql.createConnection(config);
 
 // тестирование подключения
 connection.connect(err => {
