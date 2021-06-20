@@ -1,11 +1,9 @@
 <template>
-  <div class="">
+  <section>
     <h2>Главная страница</h2>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {};
 </script>
-
-<style></style>

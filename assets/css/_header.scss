@@ -1,7 +1,7 @@
 .header {
   min-width: 300px;
   grid-area: header;
-  background: #111518 url("~assets/img/bg_header.png") 50% 100%;
+  background: #111518 url('~assets/img/bg_header.png') 50% 100%;
   .wrap {
     height: 130px;
     flex-direction: column;
@@ -31,7 +31,7 @@
     text-decoration: none;
     text-transform: uppercase;
     &:hover,
-    .active {
+    &.active {
       color: #a09151;
     }
   }
@@ -68,7 +68,7 @@
   li + li {
     margin-left: 20px;
     padding-left: 20px;
-    background: url("~assets/img/divider.gif") no-repeat 0 0;
+    background: url('~assets/img/divider.gif') no-repeat 0 0;
   }
   a {
     font-weight: bold;
@@ -76,7 +76,8 @@
     color: #a09151;
     text-transform: uppercase;
     text-decoration: none;
-    &:hover {
+    &:hover,
+    &.active {
       color: #758288;
     }
   }
