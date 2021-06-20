@@ -1,26 +1,3 @@
-const mysql = require('mysql');
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'db_damyen_1',
-  password: '',
-});
-
-// тестирование подключения
-connection.connect(err => {
-  if (err) {
-    return console.error('Ошибка: ' + err.message);
-  }
-  console.log('Подключение к серверу MySQL успешно установлено');
-});
-// закрытие подключения
-connection.end(function(err) {
-  if (err) {
-    return console.log('Ошибка: ' + err.message);
-  }
-  console.log('Подключение закрыто');
-});
-
 const consola = require('consola');
 const { Nuxt, Builder } = require('nuxt');
 const app = require('./app');
