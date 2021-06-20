@@ -6,22 +6,22 @@ const config = require('../server/config.js');
 
 const app = express();
 
-// const commentRoutes = require('./routes/comment.routes');
+// const asideRoutes = require('./routes/aside.routes');
 
-const connection = mysql.createConnection(config);
+connection = mysql.createConnection(config);
 
 // тестирование подключения
 connection.connect(err => {
   if (err) {
     return console.error('Ошибка: ' + err.message);
   }
-  console.log('Подключение к серверу MySQL успешно установлено');
+  console.log('app: Подключение к серверу MySQL успешно установлено');
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// app.use('/api/comment', commentRoutes);
+// app.use('/api/caside', asideRoutes);
 
 // закрытие подключения
 connection.end();
