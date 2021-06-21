@@ -2,7 +2,7 @@
 const express = require('express');
 const port = 3002;
 const bodyParser = require('body-parser');
-const config = require('../server/config.js');
+// const config = require('../server/config.js');
 
 const app = express();
 
