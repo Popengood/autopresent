@@ -4,7 +4,7 @@
       <div class="flex ai-center jc-center am-title">Каталог автолитературы</div>
       <ul class="aside-menu">
         <li v-for="brand of brands" :key="brand.id">
-          <span>brand.name</span>
+          <span>brand</span>
         </li>
       </ul>
     </div>
@@ -12,15 +12,19 @@
 </template>
 
 <script>
+import { mapActions} from 'vuex';
 export default {
+  created() {
+    this.loadStateBrands();
+  },
   computed: {
-    async brands() {
-      if (!this.$store.getters['brands/brands'] === false) {
-        await this.$store.dispatch('brands/fetch');
-      }
-      console.log('getter=',this.$store.getters['brands/brands'])
-      return this.$store.getters['brands/brands'];
+    brands() {
+      // return this.$store.getters['fetchBrands'];
+      return this.$store.state.brands;
     },
+  },
+  methods: {
+    ...mapActions(['loadStateBrands']),
   },
 }
 </script>

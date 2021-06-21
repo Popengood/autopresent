@@ -7,14 +7,15 @@ export const state = () => ({
 export const mutations = {
   setBrands(state, payload) {
     state.brands = [...payload];
+    console.log('state.brands.mutation=', state.brands);
   },
 };
 
 export const actions = {
-  async fetch({ commit }) {
+  async loadStateBrands({ commit }) {
     await pool
       .promise()
-      .query('SELECT * FROM `tbl_menu` WHERE `parent` = "leftmenu" LIMIT 5')
+      .query('SELECT * FROM `tbl_menu` WHERE `parent` = "leftmenu" LIMIT 2')
       .then(([rows]) => {
         commit('setBrands', rows);
       })
@@ -26,7 +27,8 @@ export const actions = {
 };
 
 export const getters = {
-  brands: state => {
+  fetchBrands: state => {
+    console.log('state.brands.getters=', state.brands);
     return state.brands.length != undefined ? state.brands : [];
   },
 };

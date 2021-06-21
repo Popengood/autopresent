@@ -13,10 +13,7 @@
     "core-js": "^3.9.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "fs": "0.0.1-security",
-    "net": "^1.0.2",
-    "nuxt": "^2.15.3",
-    "tls": "0.0.1"
+    "nuxt": "^2.15.3"
   },
   "devDependencies": {
     "cardinal": "^2.1.1",
