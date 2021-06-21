@@ -14,14 +14,14 @@ export const actions = {
   async fetch({ commit }) {
     await pool
       .promise()
-      .query('SELECT * FROM `tbl_menu` LIMIT 5')
-      .then(res => {
-        console.log('res=', res);
-        commit('setBrands', res);
+      .query('SELECT * FROM `tbl_menu` WHERE `parent` = "leftmenu" LIMIT 5')
+      .then(([rows]) => {
+        commit('setBrands', rows);
       })
       .catch(err => {
         console.log(err);
-      });
+      })
+      .then(() => pool.end());
   },
 };
 

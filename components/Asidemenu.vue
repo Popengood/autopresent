@@ -18,6 +18,7 @@ export default {
       if (!this.$store.getters['brands/brands'] === false) {
         await this.$store.dispatch('brands/fetch');
       }
+      console.log('getter=',this.$store.getters['brands/brands'])
       return this.$store.getters['brands/brands'];
     },
   },
