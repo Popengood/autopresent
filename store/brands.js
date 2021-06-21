@@ -1,3 +1,6 @@
+const pool = require('../server/config');
+console.log('pool=', pool);
+
 export const state = () => ({
   brands: [],
 });
@@ -10,8 +13,7 @@ export const mutations = {
 
 export const actions = {
   async fetch({ commit }) {
-    await connection
-      .promise()
+    await pool
       .query('SELECT * FROM `tbl_menu` WHERE parent=`leftmenu` LIMIT 5')
       .then(res => {
         console.log('res=', res);

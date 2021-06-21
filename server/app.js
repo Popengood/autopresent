@@ -1,29 +1,18 @@
-const mysql = require('mysql2');
-const bluebird = require('bluebird');
+// const bluebird = require('bluebird');
 const express = require('express');
+const port = 3002;
 const bodyParser = require('body-parser');
 const config = require('../server/config.js');
 
 const app = express();
 
-// const asideRoutes = require('./routes/aside.routes');
-
-connection = mysql.createConnection(config);
-
-// тестирование подключения
-connection.connect(err => {
-  if (err) {
-    return console.error('Ошибка: ' + err.message);
-  }
-  console.log('app: Подключение к серверу MySQL успешно установлено');
-});
-
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use('/api/caside', asideRoutes);
+const server = app.listen(port, error => {
+  if (error) return console.log(`Error: ${error}`);
 
-// закрытие подключения
-connection.end();
+  console.log(`Server listening on port ${server.address().port}`);
+});
 
 module.exports = app;
