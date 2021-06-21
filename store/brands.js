@@ -1,15 +1,4 @@
-import app from '~/server/app';
-
-const mysql = require('mysql2');
-
-const config = {
-  host: 'localhost',
-  database: 'db_damyen_1',
-  user: 'root',
-  password: '',
-};
-
-const pool = mysql.createPool(config);
+import pool from '~/server/config';
 
 export const state = () => ({
   brands: [],
@@ -22,10 +11,10 @@ export const mutations = {
 };
 
 export const actions = {
-  fetch({ commit }) {
-    // app.get('', (req, res) => {
-    pool
-      .query('SELECT * FROM `tbl_menu` WHERE parent=`leftmenu` LIMIT 5')
+  async fetch({ commit }) {
+    await pool
+      .promise()
+      .query('SELECT * FROM `tbl_menu` LIMIT 5')
       .then(res => {
         console.log('res=', res);
         commit('setBrands', res);
@@ -33,17 +22,7 @@ export const actions = {
       .catch(err => {
         console.log(err);
       });
-    // });
   },
-  /* fetch({ commit }) {
-    pool.query(
-      'SELECT * FROM `tbl_menu` WHERE parent=`leftmenu` LIMIT 5',
-      (error, result) => {
-        if (error) throw error;
-        response.send(result);
-      }
-    );
-  }, */
 };
 
 export const getters = {

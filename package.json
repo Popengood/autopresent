@@ -19,6 +19,7 @@
     "tls": "0.0.1"
   },
   "devDependencies": {
+    "cardinal": "^2.1.1",
     "cross-env": "^7.0.3",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.7",
