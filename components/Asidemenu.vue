@@ -4,7 +4,7 @@
       <div class="flex ai-center jc-center am-title">Каталог автолитературы</div>
       <ul class="aside-menu">
         <li v-for="brand of brands" :key="brand.id">
-          <span>brand</span>
+          <span>{{ brand.name }}</span>
         </li>
       </ul>
     </div>

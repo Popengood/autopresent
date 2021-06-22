@@ -33,7 +33,6 @@ module.exports = {
     extend(config, { isDev, isClient }) {
       config.node = {
         fs: 'empty',
-        net: 'empty',
         tls: 'empty',
       };
     },
