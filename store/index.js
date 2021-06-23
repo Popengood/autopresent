@@ -1,4 +1,4 @@
-import pool from '~/server/config';
+const pool = require('~/server/config');
 
 export const state = () => ({
   brands: [],
@@ -7,7 +7,6 @@ export const state = () => ({
 export const mutations = {
   setBrands(state, payload) {
     state.brands = [...payload];
-    console.log('state.brands.mutation=', state.brands);
   },
 };
 
@@ -16,19 +15,10 @@ export const actions = {
     await pool
       .promise()
       .query('SELECT * FROM `tbl_menu` WHERE `parent` = "leftmenu" LIMIT 2')
-      .then(([rows]) => {
-        commit('setBrands', rows);
-      })
-      .catch(err => {
-        console.log(err);
-      })
+      .then(([rows]) => commit('setBrands', rows))
+      .catch(err => console.log(err))
       .then(() => pool.end());
   },
 };
 
-export const getters = {
-  fetchBrands: state => {
-    console.log('state.brands.getters=', state.brands);
-    return state.brands.length != undefined ? state.brands : [];
-  },
-};
+export const getters = {};

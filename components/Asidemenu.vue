@@ -12,19 +12,22 @@
 </template>
 
 <script>
-import { mapActions} from 'vuex';
+
 export default {
-  created() {
-    this.loadStateBrands();
+  async fetch() {
+    try {
+      if (this.$store.state.brands.length == 0) {
+        console.log('test')
+        await this.$store.dispatch('loadStateBrands');
+      }
+    } catch (err) {
+      console.log(err);
+    }
   },
   computed: {
     brands() {
-      // return this.$store.getters['fetchBrands'];
       return this.$store.state.brands;
     },
-  },
-  methods: {
-    ...mapActions(['loadStateBrands']),
   },
 }
 </script>
