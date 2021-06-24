@@ -2,13 +2,52 @@
   margin-right: 20px;
   .white-box {
     width: 235px;
+    margin-bottom: 0;
     padding: 0;
   }
+  .title {
+    height: 40px;
+    font-size: 17px;
+    color: #f3f2e8;
+    border-radius: 6px 6px 0 0;
+    background: #44443d;
+  }
 }
-.am-title {
-  height: 40px;
-  font-size: 17px;
-  color: #f3f2e8;
-  border-radius: 6px 6px 0 0;
-  background: #44443d;
+.aside-menu {
+  margin: 5px 10px 10px;
+  span {
+    font-size: 15px;
+    color: $color-link;
+    outline: none;
+    cursor: pointer;
+    &:hover,
+    &.active {
+      color: $color-link-hover;
+    }
+  }
+}
+.submenu {
+  position: relative;
+  margin: 5px -11px;
+  padding: 10px 10px 10px 21px;
+  background: #cfcfb9;
+  &:before {
+    width: 14px;
+    height: 8px;
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: -16px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #cfcfb9 transparent;
+  }
+  a {
+    font-size: 14px;
+    color: $color-base;
+    &:hover {
+      color: $color-link-hover;
+      border-bottom: none;
+    }
+  }
 }

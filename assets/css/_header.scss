@@ -33,6 +33,7 @@
     &:hover,
     &.active {
       color: #a09151;
+      border-bottom: none;
     }
   }
 }
@@ -57,7 +58,7 @@
     text-decoration: none;
     text-transform: uppercase;
     &:hover {
-      text-decoration: underline;
+      border-bottom: 1px solid #758288;
     }
   }
 }
@@ -79,6 +80,7 @@
     &:hover,
     &.active {
       color: #758288;
+      border-bottom: none;
     }
   }
 }

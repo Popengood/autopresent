@@ -13,7 +13,7 @@
 export default {
   components: {
     AppHeader: () => import('~/components/header/Header'),
-    AppAside: () => import('~/components/Asidemenu'),
+    AppAside: () => import('~/components/aside/Asidemenu'),
     AppFooter: () => import('~/components/footer/Footer'),
   },
 };

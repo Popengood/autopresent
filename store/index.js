@@ -12,13 +12,21 @@ export const mutations = {
 
 export const actions = {
   async loadStateBrands({ commit }) {
+    const query =
+      'SELECT id, url, name, parent FROM `tbl_menu` WHERE `parent` != "inform" and `parent` != "addinform" and `status` = 1 ORDER BY position';
     await pool
       .promise()
-      .query('SELECT * FROM `tbl_menu` WHERE `parent` = "leftmenu" LIMIT 2')
+      .query(query)
       .then(([rows]) => commit('setBrands', rows))
-      .catch(err => console.log(err))
-      .then(() => pool.end());
+      .then(() => pool.end())
+      .catch(err => console.log(err));
   },
 };
 
-export const getters = {};
+export const getters = {
+  fetchBrands: state => parent => {
+    return state.brands.filter(brand => {
+      return brand.parent == parent;
+    });
+  },
+};
