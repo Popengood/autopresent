@@ -1,17 +1,14 @@
 <template>
-  <div>
-    <h2>Новинки</h2>
+  <div class="content">
+    <h1>Новинки автолитературы по ремонту и эксплуатации автомобилей.</h1>
+    <app-listbook />
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      isActive: true,
-    }
+  components: {
+    AppListbook: () => import('~/components/books/ListBook'),
   }
 }
 </script>
-
-<style lang="scss" scoped></style>
