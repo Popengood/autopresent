@@ -15,12 +15,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['fetchBrands']),
+    ...mapGetters('aside', ['fetchBrands']),
     models() {
      return this.fetchBrands(this.parent);
     },
   },
 }
 </script>
-
-<style lang="scss" scoped></style>

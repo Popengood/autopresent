@@ -26,7 +26,7 @@ export const actions = {
 export const getters = {
   fetchBrands: state => parent => {
     return state.brands.filter(brand => {
-      return brand.parent == parent;
+      return brand.parent === parent;
     });
   },
 };

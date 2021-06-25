@@ -17,23 +17,18 @@ import { mapGetters } from 'vuex';
 export default {
   async fetch() {
     try {
-      if (this.$store.state.brands.length == 0) {
-        await this.$store.dispatch('loadStateBrands');
+      if (this.$store.state.aside.brands.length == 0) {
+        await this.$store.dispatch('aside/loadStateBrands');
       }
     } catch (err) {
-      error(err);
-    }
-  },
-  data() {
-    return {
-      // isActive: false,
+      console.log(err);
     }
   },
   components: {
     AppSubmenu: () => import('~/components/aside/Submenu'),
   },
   computed: {
-    ...mapGetters(['fetchBrands']),
+    ...mapGetters('aside', ['fetchBrands']),
     brands() {
       return this.fetchBrands('leftmenu');
     },
@@ -51,5 +46,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped></style>

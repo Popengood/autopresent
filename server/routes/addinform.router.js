@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const controller = require('../controllers/inform.controller');
+const controller = require('../controllers/addinform.controller');
 const router = Router();
 
 router.use('/', controller.fetchBooks);
