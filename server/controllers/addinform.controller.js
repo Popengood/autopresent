@@ -1,6 +1,6 @@
 const pool = require('../config');
 
-exports.fetchBooks = async (req, res) => {
+module.exports.fetchBooks = async (req, res) => {
   const query =
     'SELECT * FROM `tbl_article` WHERE `' +
     req.condition +
@@ -8,8 +8,8 @@ exports.fetchBooks = async (req, res) => {
 
   await pool
     .promise()
-    .query(query)
+    .execute(query)
     .then(([rows]) => res.json({ books: rows }))
     // .then(() => pool.end())
-    .catch(err => console.log(err));
+    .catch(err => res.status(500).json(err));
 };
