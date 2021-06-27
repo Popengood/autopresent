@@ -10,13 +10,16 @@
 .header-row {
   height: 90px;
 }
-.navbar-brand {
+.navbar-brand,
+.navbar-brand:hover {
   font-weight: 500;
   font-size: 32px;
   line-height: 1;
   letter-spacing: 1px;
   color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
   margin-bottom: 6px;
+  border-bottom: none;
 }
 .add-menu {
   margin-left: 6%;

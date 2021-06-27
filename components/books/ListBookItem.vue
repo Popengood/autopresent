@@ -1,0 +1,48 @@
+<template>
+  <div class="white-box preview">
+    <h2>
+      <nuxt-link :to="`/${brand.parent}/${book.parent}/${book.url}`">{{ book.name }}</nuxt-link>
+    </h2>
+    <div class="flex book">
+      <div class="book-img">
+        <nuxt-link :to="`/${brand.parent}/${book.parent}/${book.url}`"><img :src="`${pathFiles}/${book.id}/${book.titlethumb}.jpg`" alt="" class="img-sm"></nuxt-link>
+      </div>
+
+      <div class="book-data">
+        <p class="articul-row">Артикул: <span class="price">{{ book.articul }}</span></p>
+        <p>
+          Издательство: «{{ book.publishing }}»,<br />
+          <slot v-if="book.series">Серия: «{{ book.series }}»,<br /></slot>
+          Цветность: {{ book.color }},<br />
+          Количество страниц: {{ book.numpages }},<br />
+          ISBN: {{ book.isbn }}
+        </p>
+      </div>
+
+      <BookPrice :book="book" />
+    </div>
+    
+    <div v-html="book.description"></div>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex';
+export default {
+  data() {
+    return {
+      pathFiles: 'http://www.autopresent.ru/files',
+    }
+  },
+  props: ['book'],
+  components: {
+    BookPrice: () => import('~/components/books/BookPrice'),
+  },
+  computed: {
+    ...mapGetters('aside', ['fetchBrand']),
+    brand() {
+      return this.fetchBrand(this.book.parent)[0];
+    },
+  },
+}
+</script>

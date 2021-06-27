@@ -29,4 +29,9 @@ export const getters = {
       return brand.parent === parent;
     });
   },
+  fetchBrand: state => url => {
+    return state.brands.filter(brand => {
+      return brand.url === url;
+    });
+  },
 };

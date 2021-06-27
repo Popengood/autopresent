@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <h1>Новинки автолитературы по ремонту и эксплуатации автомобилей.</h1>
-    <app-listbook :books="books" />
+    <ListBookItem v-for="book in books.books" :key="book.id" :book="book" />
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default {
     }
   },
   components: {
-    AppListbook: () => import('~/components/books/ListBook'),
+    ListBookItem: () => import('~/components/books/ListBookItem'),
   }
 }
 </script>

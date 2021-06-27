@@ -2,7 +2,7 @@
   <div class="header">
     <div class="flex wrap">
       <div class="flex ai-center header-row">
-        <a class="navbar-brand">AutoPresent</a>
+        <nuxt-link to="/" class="navbar-brand">AutoPresent</nuxt-link>
         <app-addmenu />
         <app-cartview />
       </div>
