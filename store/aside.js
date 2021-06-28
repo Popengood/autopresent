@@ -11,7 +11,7 @@ export const mutations = {
 };
 
 export const actions = {
-  async loadStateBrands({ commit }) {
+  async loadState({ commit }) {
     const query =
       'SELECT id, url, name, parent FROM `tbl_menu` WHERE `parent` != "inform" and `parent` != "addinform" and `status` = 1 ORDER BY position';
     await pool

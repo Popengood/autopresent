@@ -16,6 +16,48 @@
 
 <script>
 export default {
+  data() {
+    return {
+      id: null,
+    };
+  },
   props: ['book'],
+  methods: {
+    createOrder() {
+      const data = {
+        title: this.book.title,
+        articul: this.book.articul,
+        price: this.book.price,
+        quantity: 1,
+      };
+      localStorage.setItem('order', JSON.stringify(data));
+      this.$router.push({ name: 'order' });
+    },
+    addCart(id) {
+      const data = {
+        id,
+        title: this.book.title,
+        url: this.book.url,
+        articul: this.book.articul,
+        thumb: this.book.thumb,
+        price: this.book.price,
+        quantity: 1,
+      };
+      let isBook = false;
+
+      const goods = JSON.parse(localStorage.getItem('cart')) || [];
+      for (let book of goods) {
+        if (book.articul == data.articul) {
+          book.quantity++;
+          isBook = true;
+          break;
+        }
+      }
+      if (!isBook) {
+        goods.push(data);
+      }
+      this.$store.dispatch('cart/setLocalStorage', goods);
+    },
+  },
 }
 </script>

@@ -18,7 +18,7 @@ export default {
   async fetch() {
     try {
       if (this.$store.state.aside.brands.length == 0) {
-        await this.$store.dispatch('aside/loadStateBrands');
+        await this.$store.dispatch('aside/loadState');
       }
     } catch (err) {
       console.log(err);
