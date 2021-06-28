@@ -1,6 +1,8 @@
 <template>
   <div style="margin-left: auto">
-    <p v-if="$fetchState.pending" class="flex cart-box">Loading</p>
+    <div v-if="$fetchState.pending" class="flex cart-box">
+      <div class="loading"></div>
+    </div>
     <div v-else>
       <div v-if="goods.length" class="flex cart-box">
         <div class="cart-info">

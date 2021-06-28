@@ -87,3 +87,16 @@
     }
   }
 }
+
+@keyframes moving {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.loading {
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  background: url('~assets/img/loading.png') no-repeat 0 0 / cover;
+  animation: moving 2s infinite linear;
+}
