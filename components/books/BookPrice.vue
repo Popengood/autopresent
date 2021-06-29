@@ -25,7 +25,7 @@ export default {
   methods: {
     createOrder() {
       const data = {
-        title: this.book.title,
+        name: this.book.name,
         articul: this.book.articul,
         price: this.book.price,
         quantity: 1,
@@ -36,10 +36,10 @@ export default {
     addCart(id) {
       const data = {
         id,
-        title: this.book.title,
+        name: this.book.name,
         url: this.book.url,
         articul: this.book.articul,
-        thumb: this.book.thumb,
+        titlethumb: this.book.titlethumb,
         price: this.book.price,
         quantity: 1,
       };

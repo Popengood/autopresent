@@ -106,6 +106,7 @@ h3,
 .btn:hover {
   text-decoration: none;
 }
+
 .btn-success {
   color: #fff;
   background-color: #198754;
@@ -118,6 +119,33 @@ h3,
 .btn-success:active {
   background-color: #146c43;
   border-color: #13653f;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+.btn-secondary:hover {
+  background-color: #5c636a;
+  border-color: #565e64;
+}
+.btn-secondary:active {
+  background-color: #565e64;
+  border-color: #51585e;
+}
+
+.btn-delete {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 24px;
+  color: #fff;
+  margin-top: -3px;
+  border-radius: 100%;
+  background: #ff494e;
+  cursor: pointer;
 }
 
 @import '_header.scss';
@@ -194,5 +222,105 @@ h3,
   transition: $transition;
   &:hover {
     border-bottom-color: transparent;
+  }
+}
+
+.tabcart {
+  width: 100%;
+  margin-bottom: 20px;
+  border: solid 1px #996;
+  border-collapse: inherit;
+  background: #fff;
+  th {
+    height: 38px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #f0efdb;
+    text-align: center;
+    padding: 0.75rem 0;
+    border: none;
+    background: #44443d;
+  }
+  td {
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: top;
+    padding: 0.75rem 0;
+    border: none;
+    &:nth-child(2) {
+      text-align: left;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    &.count {
+      padding-top: 7px;
+    }
+    &.thumb {
+      .img-sm {
+        width: 100px;
+        margin: 0 auto;
+      }
+    }
+    a {
+      color: #212529;
+      border-bottom: 1px solid transparent;
+      &:hover {
+        border-bottom-color: #212529;
+      }
+    }
+    input {
+      width: 53px;
+      height: 30px;
+      text-align: center;
+      color: #736a5d;
+      padding: 4px 8px;
+      border: solid 1px #dbd0c0;
+      border-radius: 3px;
+      box-shadow: inset 0px 1px 2px rgb(2 0 0 / 11%);
+      outline: none;
+      &:focus {
+        color: #3c464e;
+        border: solid 1px #82b0d5;
+        background: #fff;
+        box-shadow: 0 0 9px rgb(123 198 254 / 37%),
+          inset 0 1px 2px rgb(91 114 132 / 30%);
+      }
+    }
+  }
+}
+.table-striped tbody {
+  tr:nth-of-type(odd) {
+    background-color: #f5f4ed;
+  }
+  tr:nth-of-type(even) {
+    background-color: #ecece4;
+  }
+}
+tfoot td {
+  height: 38px;
+  font-size: 0.9375rem;
+  color: #f0efdb;
+  padding: 0 10px;
+  vertical-align: middle;
+  background: #44443d;
+}
+.alert {
+  max-width: 520px;
+  height: 72px;
+  color: #fffefe;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 40px;
+  border-radius: 3px;
+  background: #ec785e;
+  &:before {
+    width: 52px;
+    height: 52px;
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translate(-66px, -50%);
+    background: url(~assets/img/ahtung.png) no-repeat;
   }
 }
