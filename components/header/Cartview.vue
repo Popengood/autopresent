@@ -19,7 +19,8 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapGetters } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
+
 export default {
   fetchOnServer: false,
   fetch() {
@@ -36,7 +37,6 @@ export default {
   },
   computed: {
     ...mapState({ goods: state => state.cart.goods }),
-    ...mapMutations('cart', ['loadState']),
     ...mapGetters('cart', ['fetchQuantity', 'fetchTotal']),
     quantity() {
       return this.fetchQuantity;
@@ -54,12 +54,6 @@ export default {
         n % 100 > 4 && n % 100 < 20 ? 2 : this.cases[n % 10 < 5 ? n % 10 : 5];
       return this.ending[i];
     },
-    loadStorage() {
-      if (this.$store.state.cart.goods.length == 0) {
-        const data = JSON.parse(localStorage.getItem('cart')) || [];
-        this.$store.commit('cart/setGoods', data);
-      }
-    }
   },
 };
 </script>
