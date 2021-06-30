@@ -1,10 +1,8 @@
 const pool = require('../config');
 
-module.exports.fetchBooks = async (req, res) => {
+module.exports.fetchNovetly = async (req, res) => {
   const query =
-    'SELECT * FROM `tbl_article` WHERE `' +
-    req.condition +
-    '` = 1 AND `status` = 1 ORDER BY id DESC LIMIT 15';
+    'SELECT * FROM `tbl_article` WHERE `novetly` = 1 AND `status` = 1 ORDER BY id DESC LIMIT 15';
 
   await pool
     .promise()
@@ -15,3 +13,5 @@ module.exports.fetchBooks = async (req, res) => {
     // .then(() => pool.end())
     .catch(err => res.status(500).json(err));
 };
+
+// module.exports.fetchBestsellers = async (reg, res) => {};

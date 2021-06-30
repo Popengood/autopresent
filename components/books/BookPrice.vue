@@ -4,7 +4,7 @@
     <slot v-if="book.instock == 1">Наличие: <span class="success">На складе</span></slot>
     <slot v-else><span class="danger">Нет в наличии</span></slot>
     </p>
-    <button class="btn btn-success mb-2" @click="createOrder">
+    <button class="btn btn-danger" @click="createOrder">
       Купить в 1 клик
     </button>
     <div>

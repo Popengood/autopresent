@@ -90,7 +90,7 @@ h3,
   display: inline-block;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #fff;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
@@ -108,7 +108,6 @@ h3,
 }
 
 .btn-success {
-  color: #fff;
   background-color: #198754;
   border-color: #198754;
 }
@@ -121,8 +120,20 @@ h3,
   border-color: #13653f;
 }
 
+.btn-danger {
+  background-color: #ca594a;
+  border-color: #743a08;
+}
+.btn-danger:hover {
+  background-color: #df6252;
+  border-color: #824109;
+}
+.btn-danger:active {
+  background-color: #bd4b3c;
+  // border-color: #824109;
+}
+
 .btn-secondary {
-  color: #fff;
   background-color: #6c757d;
   border-color: #6c757d;
 }
