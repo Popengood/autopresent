@@ -1,11 +1,27 @@
 <template>
   <div>
-    <h2>Последние поступления</h2>
+    <h1>Последние поступления</h1>
+    <ListBookItem v-for="book in books.books" :key="book.id" :book="book" />
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      books: [],
+    }
+  },
+  async fetch() {
+    try {
+      this.books = await this.$axios.$get('/api/addinform/latest');
+    } catch (e) {
+      console.error(e);
+      throw e;
+    }
+  },
+  components: {
+    ListBookItem: () => import('~/components/books/ListBookItem'),
+  }
+}
 </script>
-
-<style lang="scss" scoped></style>
