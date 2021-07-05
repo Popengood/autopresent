@@ -1,11 +1,12 @@
 <template>
   <div>
-    <h1>Руководства по ремонту и эксплуатации BMW 3 серии.</h1>
+    <h1>Руководства по ремонту и эксплуатации {{ model[0].name }}.</h1>
     <ListBookItem v-for="book in books.books" :key="book.id" :book="book" />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
@@ -20,6 +21,12 @@ export default {
       console.error(e);
       throw e;
     }
+  },
+  computed: {
+    ...mapGetters('aside', ['fetchBrand']),
+    model() {
+     return this.fetchBrand(this.$route.params.model);
+    },
   },
   components: {
     ListBookItem: () => import('~/components/books/ListBookItem'),
