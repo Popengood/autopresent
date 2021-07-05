@@ -1,7 +1,7 @@
 <template>
   <ul class="submenu">
     <li v-for="model of models" :key="model.id">
-      <nuxt-link :to="`/${model.parent}/${model.url}`">{{ model.name}}</nuxt-link>
+      <nuxt-link :to="`/book/${model.parent}/${model.url}`">{{ model.name}}</nuxt-link>
     </li>
   </ul>
 </template>
