@@ -1,16 +1,19 @@
 <template>
-  <div class="book-price">
+  <div class="book-price" :class="{ noinstock: !book.instock }">
     <p>Цена: <span class="price">{{ book.price }}</span> руб.<br />
-    <slot v-if="book.instock == 1">Наличие: <span class="success">На складе</span></slot>
-    <slot v-else><span class="danger">Нет в наличии</span></slot>
-    </p>
-    <button class="btn btn-danger" @click="createOrder">
-      Купить в 1 клик
-    </button>
-    <div>
-      или<br />
-      <span class="link" @click="addCart(book.id)">Положить в корзину</span>
+
+    <div v-if="book.instock == 1">
+      <p>Наличие: <span class="success">На складе</span></p>
+      <button class="btn btn-danger" @click="createOrder">
+        Купить в 1 клик
+      </button>
+      <div>
+        или<br />
+        <span class="link" @click="addCart(book.id)">Положить в корзину</span>
+      </div>
     </div>
+
+    <div v-else><p class="danger">Нет в наличии</p></div>
   </div>
 </template>
 
