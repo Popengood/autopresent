@@ -15,6 +15,12 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
+  data() {
+    return {
+      submenues: null,
+      links: null,
+    };
+  },
   async fetch() {
     try {
       if (this.$store.state.aside.brands.length == 0) {
@@ -33,14 +39,24 @@ export default {
       return this.fetchBrands('leftmenu');
     },
   },
+  mounted() {
+    this.links = this.$el.querySelectorAll('.aside-menu span');
+  },
   methods: {
     activeLink(e) {
-      if (e.target.classList.contains('active')) {
-        e.target.classList.remove('active');
-        e.target.nextElementSibling.hidden = true;
+      const el = e.target;
+      for (let link of this.links) {
+        if (link == el) continue;
+        link.classList.remove('active');
+        link.nextElementSibling.hidden = true;
+      }
+
+      if (el.classList.contains('active')) {
+        el.classList.remove('active');
+        el.nextElementSibling.hidden = true;
       } else {
-        e.target.classList.add('active');
-        e.target.nextElementSibling.hidden = false;
+        el.classList.add('active');
+        el.nextElementSibling.hidden = false;
       }
     },
   },
