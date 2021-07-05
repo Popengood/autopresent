@@ -48,6 +48,11 @@
 <script>
 import { mapState } from 'vuex';
 export default {
+  head() {
+    return {
+      title: 'Корзина покупателя',
+    };
+  },
   components: {
     ListCartItem: () => import('~/components/cart/ListCartItem'),
   },

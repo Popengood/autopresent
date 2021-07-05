@@ -12,6 +12,18 @@ export default {
       books: [],
     }
   },
+  head() {
+    return {
+      title: 'Самые популярные руководства по ремонту',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Самые популярные руководства по ремонту автомобилей. Лидеры продаж за последние 7 дней',
+        },
+      ],
+    };
+  },
   async fetch() {
     try {
       this.books = await this.$axios.$get('/api/addinform/bestsellers');

@@ -13,6 +13,18 @@ export default {
       books: [],
     }
   },
+  head() {
+    return {
+      title: `Руководства по ремонту и эксплуатации ${this.model[0].name}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.model[0].description,
+        },
+      ],
+    };
+  },
   async fetch() {
     try {
       const path = `/api/book/${this.$nuxt._route.params.brand}/${this.$nuxt._route.params.model}`;

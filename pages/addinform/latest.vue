@@ -12,6 +12,18 @@ export default {
       books: [],
     }
   },
+  head() {
+    return {
+      title: 'Последние поступления книг по ремонту автомобилей',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Последние поступления книг по ремонту автомобилей',
+        },
+      ],
+    };
+  },
   async fetch() {
     try {
       this.books = await this.$axios.$get('/api/addinform/latest');

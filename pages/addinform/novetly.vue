@@ -12,6 +12,18 @@ export default {
       books: [],
     }
   },
+  head() {
+    return {
+      title: 'Новинки автолитературы по ремонту и эксплуатации автомобилей',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Новые руководства по ремонту. Новинки издательств литературы по ремонту и эксплуатации автомобилей.',
+        },
+      ],
+    };
+  },
   async fetch() {
     try {
       this.books = await this.$axios.$get('/api/addinform/novetly');
