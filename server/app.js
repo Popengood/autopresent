@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const addinformRoutes = require('./routes/addinform.router');
 const bookRoutes = require('./routes/book.router');
 
@@ -11,8 +10,6 @@ const server = app.listen(port, error => {
   if (error) return console.log(`Error: ${error}`);
   console.log(`Server listening on port ${server.address().port}`);
 });
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
 app.use('/api/addinform', addinformRoutes);
 app.use('/api/book', bookRoutes);
