@@ -30,8 +30,8 @@ export default {
       const path = `/api/book/${this.$nuxt._route.params.brand}/${this.$nuxt._route.params.model}`;
       this.books = await this.$axios.$get(path);
     } catch (e) {
-      console.error(e);
-      throw e;
+      error({ statusCode: 404, message: 'Post not found' })
+      // throw e;
     }
   },
   computed: {

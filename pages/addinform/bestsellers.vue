@@ -1,7 +1,10 @@
 <template>
   <div>
     <h1>Бестселлеры</h1>
-    <ListBookItem v-for="book in books.books" :key="book.id" :book="book" />
+    <ListBookItem
+      v-for="book in books.books"
+      :key="book.id" :book="book"
+    />
   </div>
 </template>
 

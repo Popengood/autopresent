@@ -1,7 +1,10 @@
 <template>
   <div class="content">
     <h1>Новинки автолитературы по ремонту и эксплуатации автомобилей.</h1>
-    <ListBookItem v-for="book in books.books" :key="book.id" :book="book" />
+    <ListBookItem
+      v-for="book in books.books"
+      :key="book.id" :book="book"
+    />
   </div>
 </template>
 
