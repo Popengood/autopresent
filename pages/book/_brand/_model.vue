@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       books: [],
-    }
+    };
   },
   head() {
     return {

@@ -1,5 +1,5 @@
 <template>
-  <ul class="submenu">
+  <ul class="submenu" hidden>
     <li v-for="model of models" :key="model.id">
       <nuxt-link :to="`/book/${model.parent}/${model.url}`">{{ model.name}}</nuxt-link>
     </li>

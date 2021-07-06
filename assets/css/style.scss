@@ -51,6 +51,12 @@ h3,
   color: $color-danger;
 }
 
+b,
+strong {
+  font-weight: 500;
+  color: #454d54;
+}
+
 .wrapper {
   height: 100vh;
   display: grid;
