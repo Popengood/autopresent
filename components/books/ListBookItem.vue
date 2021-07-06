@@ -5,6 +5,11 @@
     </h2>
     <div class="flex book">
       <div class="book-img">
+        <nuxt-link
+          v-if="book.novetly"
+          :to="`/${brand.parent}/${book.parent}/${book.url}`"
+          class="newbook"
+          ></nuxt-link>
         <nuxt-link :to="`/${brand.parent}/${book.parent}/${book.url}`"><img :src="`${pathFiles}/${book.id}/${book.titlethumb}.jpg`" alt="" class="img-sm"></nuxt-link>
       </div>
 

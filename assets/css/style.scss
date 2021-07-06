@@ -189,6 +189,7 @@ strong {
   margin-bottom: 20px;
 }
 .book-img {
+  position: relative;
   margin-right: 20px;
   a {
     display: block;
@@ -201,6 +202,15 @@ strong {
 .img-lg {
   width: 165px;
   height: auto;
+}
+.newbook {
+  width: 74px;
+  height: 74px;
+  position: absolute;
+  left: -3px;
+  top: -3px;
+  z-index: 5;
+  background: url('~assets/img/newbook.png') no-repeat;
 }
 .book-price {
   width: 180px;
