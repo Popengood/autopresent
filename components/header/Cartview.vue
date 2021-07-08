@@ -9,7 +9,7 @@
             В Вашей корзине<br />
             {{ quantity }} книг{{ endword }} на {{ total }} руб.
         </div>
-        <span><router-link to="/cart">Перейти в корзину</router-link></span>
+        <span><router-link to="/book/cart">Перейти в корзину</router-link></span>
       </div>
       <div v-else class="flex cart-box">
         <div class="cart-info">В Вашей корзине пока<br />ничего нет.</div>
