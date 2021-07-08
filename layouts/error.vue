@@ -18,7 +18,7 @@
 
 <script>
 export default {
-	layout: 'notaside',
+	layout: 'empty',
 };
 </script>
 
