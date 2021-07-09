@@ -175,8 +175,14 @@ strong {
   background: #f0efdb;
 }
 .container-error {
-  width: 100%;
   height: 100vh;
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #f0efdb;
 }
 .content {
   width: 100%;

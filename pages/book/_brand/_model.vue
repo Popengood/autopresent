@@ -8,6 +8,9 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
+  validate({ params }) {
+    return /^([-a-z]{3,35})+$/.test(params._brand);
+  },
   data() {
     return {
       books: [],
@@ -30,8 +33,8 @@ export default {
       const path = `/api/book/${this.$nuxt._route.params.brand}/${this.$nuxt._route.params.model}`;
       this.books = await this.$axios.$get(path);
     } catch (e) {
-      error({ statusCode: 404, message: 'Post not found' })
-      // throw e;
+      // error({ statusCode: 404, message: 'Post not found' })
+      throw e;
     }
   },
   computed: {
