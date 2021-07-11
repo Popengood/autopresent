@@ -8,9 +8,9 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
-  validate({ params }) {
+  /* validate({ params }) {
     return /^([-a-z]{3,35})+$/.test(params._brand);
-  },
+  }, */
   data() {
     return {
       books: [],
@@ -28,6 +28,7 @@ export default {
       ],
     };
   },
+  middleware: ['checkBrand'],
   async fetch() {
     try {
       const path = `/api/book/${this.$nuxt._route.params.brand}/${this.$nuxt._route.params.model}`;

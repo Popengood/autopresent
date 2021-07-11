@@ -25,13 +25,9 @@ export const actions = {
 
 export const getters = {
   fetchBrands: state => parent => {
-    return state.brands.filter(brand => {
-      return brand.parent === parent;
-    });
+    return state.brands.filter(brand => brand.parent === parent);
   },
   fetchBrand: state => url => {
-    return state.brands.filter(brand => {
-      return brand.url === url;
-    });
+    return state.brands.filter(brand => brand.url === url);
   },
 };

@@ -45,10 +45,10 @@ export default {
   },
   mounted() {
     this.links = this.$el.querySelectorAll('.aside-menu span');
-    this.showList();
+    this.showSubnemu();
   },
   methods: {
-    showList() {
+    showSubnemu() {
       for (let link of this.links) {
         link.nextElementSibling.hidden = link.classList.contains('active') ? false : true;
       }
