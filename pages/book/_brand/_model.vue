@@ -11,6 +11,9 @@ export default {
   validate({ store, params }) {
     return store.state.aside.brands.some(brand => brand.parent === params.brand);
   },
+  /* validate({ store, params }) {
+    return store.state.aside.brands.some(brand => brand.url === 'acura-mdx');
+  }, */
   data() {
     return {
       books: [],
