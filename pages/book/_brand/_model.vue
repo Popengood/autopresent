@@ -8,17 +8,13 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
-  /* validate({ params }) {
-    return /^([-a-z]{3,35})+$/.test(params._brand);
+  validate({ params }) {
+    return /^([-a-z]{3,35})+$/.test(params.brand);
   },
-  validate({ store, params }) {
-    return store.state.aside.brands.some(brand => brand.parent === params.brand);
-  }, */
-  data() {
-    return {
-      books: [],
-    };
+  validate({ params }) {
+    return /^([-a-z0-9]{2,30})+$/.test(params.model);
   },
+  middleware: ['checkBrand', 'checkModel'],
   head() {
     return {
       title: `Руководства по ремонту и эксплуатации ${this.model[0].name}`,
@@ -31,7 +27,11 @@ export default {
       ],
     };
   },
-  middleware: ['checkBrand'],
+  data() {
+    return {
+      books: [],
+    };
+  },
   async fetch() {
     try {
       const path = `/api/book/${this.$nuxt._route.params.brand}/${this.$nuxt._route.params.model}`;
