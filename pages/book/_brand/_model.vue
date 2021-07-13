@@ -8,6 +8,9 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
+  validate({ params }) {
+    return /^([-a-z]{3,35})+$/.test(params._brand);
+  },
   validate({ store, params }) {
     return store.state.aside.brands.some(brand => brand.parent === params.brand);
   },
