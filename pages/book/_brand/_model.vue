@@ -9,10 +9,10 @@
 import { mapGetters } from 'vuex';
 export default {
   validate({ params }) {
-    return /^([-a-z]{3,35})+$/.test(params.brand);
-  },
-  validate({ params }) {
-    return /^([-a-z0-9]{2,30})+$/.test(params.model);
+    const testBrand = /^([-a-z]{3,35})+$/.test(params.brand);
+    const testModel = /^([-a-z0-9]{2,30})+$/.test(params.model);
+    if (!testBrand || !testModel) return false;
+    return true;
   },
   middleware: ['checkBrand', 'checkModel'],
   head() {
@@ -37,7 +37,8 @@ export default {
       const path = `/api/book/${this.$nuxt._route.params.brand}/${this.$nuxt._route.params.model}`;
       this.books = await this.$axios.$get(path);
     } catch (e) {
-      throw e;
+      // return error({ status: 404 });
+      console.log(e)
     }
   },
   computed: {

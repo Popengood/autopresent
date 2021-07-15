@@ -13,5 +13,5 @@ module.exports.fetchModels = async (req, res) => {
       res.json({ books: rows });
     })
     // .then(() => pool.end())
-    .catch(err => res.status(500).json(err));
+    .catch(err => res.status(400).json(err));
 };
