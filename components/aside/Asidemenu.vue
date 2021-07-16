@@ -27,7 +27,7 @@ export default {
   },
   async fetch() {
     try {
-      if (this.$store.state.aside.brands.length == 0) {
+      if (this.$store.state.brands.length == 0) {
         await this.$store.dispatch('nuxtServerInit');
       }
     } catch (err) {
