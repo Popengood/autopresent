@@ -28,6 +28,7 @@ export const getters = {
     return state.brands.filter(brand => brand.parent === parent);
   },
   fetchBrand: state => url => {
-    return state.brands.filter(brand => brand.url === url);
+    console.log('fetchBrand');
+    return state.brands.find(brand => brand.url === url);
   },
 };

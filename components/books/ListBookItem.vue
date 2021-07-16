@@ -46,7 +46,7 @@ export default {
   computed: {
     ...mapGetters(['fetchBrand']),
     brand() {
-      return this.fetchBrand(this.book.parent)[0];
+      return this.fetchBrand(this.book.parent);
     },
   },
 }

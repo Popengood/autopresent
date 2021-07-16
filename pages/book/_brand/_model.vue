@@ -1,7 +1,10 @@
 <template>
   <div>
-    <h1>Руководства по ремонту и эксплуатации {{ model[0].name }}.</h1>
-    <ListBookItem v-for="book in books.books" :key="book.id" :book="book" />
+    <h1>Руководства по ремонту и эксплуатации {{ model.name }}.</h1>
+    <ListBookItem
+      v-for="book in books.books"
+      :key="book.id" 
+      :book="book" />
   </div>
 </template>
 
@@ -16,12 +19,12 @@ export default {
   },
   head() {
     return {
-      title: `Руководства по ремонту и эксплуатации ${this.model[0].name}`,
+      title: `Руководства по ремонту и эксплуатации ${this.model.name}`,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.model[0].description,
+          content: this.model.description,
         },
       ],
     };
