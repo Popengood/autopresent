@@ -28,7 +28,7 @@ export default {
   async fetch() {
     try {
       if (this.$store.state.aside.brands.length == 0) {
-        await this.$store.dispatch('aside/loadState');
+        await this.$store.dispatch('nuxtServerInit');
       }
     } catch (err) {
       console.log(err);
@@ -38,7 +38,7 @@ export default {
     AppSubmenu: () => import('~/components/aside/Submenu'),
   },
   computed: {
-    ...mapGetters('aside', ['fetchBrands']),
+    ...mapGetters(['fetchBrands']),
     brands() {
       return this.fetchBrands('leftmenu');
     },

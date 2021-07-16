@@ -44,7 +44,7 @@ export default {
     BookPrice: () => import('~/components/books/BookPrice'),
   },
   computed: {
-    ...mapGetters('aside', ['fetchBrand']),
+    ...mapGetters(['fetchBrand']),
     brand() {
       return this.fetchBrand(this.book.parent)[0];
     },

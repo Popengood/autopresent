@@ -11,7 +11,7 @@ export const mutations = {
 };
 
 export const actions = {
-  async loadState({ commit }) {
+  async nuxtServerInit({ commit }) {
     const query =
       'SELECT id, url, name, parent, description FROM `tbl_menu` WHERE `parent` != "inform" and `parent` != "addinform" and `status` = 1 ORDER BY position';
     await pool

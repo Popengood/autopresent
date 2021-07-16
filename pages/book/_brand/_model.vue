@@ -8,13 +8,12 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
-  validate({ params }) {
-    const testBrand = /^([-a-z]{3,35})+$/.test(params.brand);
-    const testModel = /^([-a-z0-9]{2,30})+$/.test(params.model);
-    if (!testBrand || !testModel) return false;
+  validate({ params, store }) {
+    const validBrand = store.state.brands.some(brand => brand.parent === params.brand);
+    const validModel = store.state.brands.some(brand => brand.url === params.model);
+    if (!validBrand || !validModel) return false;
     return true;
   },
-  middleware: ['checkBrand', 'checkModel'],
   head() {
     return {
       title: `Руководства по ремонту и эксплуатации ${this.model[0].name}`,
@@ -27,6 +26,9 @@ export default {
       ],
     };
   },
+  components: {
+    ListBookItem: () => import('~/components/books/ListBookItem'),
+  },
   data() {
     return {
       books: [],
@@ -37,18 +39,14 @@ export default {
       const path = `/api/book/${this.$nuxt._route.params.brand}/${this.$nuxt._route.params.model}`;
       this.books = await this.$axios.$get(path);
     } catch (e) {
-      // return error({ status: 404 });
       console.log(e)
     }
   },
   computed: {
-    ...mapGetters('aside', ['fetchBrand']),
+    ...mapGetters(['fetchBrand']),
     model() {
      return this.fetchBrand(this.$route.params.model);
     },
   },
-  components: {
-    ListBookItem: () => import('~/components/books/ListBookItem'),
-  }
 }
 </script>

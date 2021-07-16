@@ -15,7 +15,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('aside', ['fetchBrands']),
+    ...mapGetters(['fetchBrands']),
     models() {
      return this.fetchBrands(this.parent);
     },
