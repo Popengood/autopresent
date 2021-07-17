@@ -58,7 +58,7 @@ strong {
 }
 
 .wrapper {
-  height: 100vh;
+  height: 100%;
   display: grid;
   grid-template-areas: 'header' 'container' 'footer';
   grid-template-rows: 130px 1fr 90px;
@@ -165,6 +165,15 @@ strong {
   cursor: pointer;
 }
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
 @import '_header.scss';
 @import '_aside.scss';
 @import '_footer.scss';
@@ -264,8 +273,7 @@ strong {
 .noinstock {
   height: 89px;
   padding: 22px 25px 10px;
-  background: #fff url('~assets/img/noinstock.png')
-    no-repeat center;
+  background: #fff url('~assets/img/noinstock.png') no-repeat center;
 }
 
 .tabcart {

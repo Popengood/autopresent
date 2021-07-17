@@ -3,7 +3,9 @@
     <app-header />
     <div class="flex container">
       <app-aside />
-      <Nuxt />
+      <transition name="fade">
+        <Nuxt />
+      </transition>
     </div>
     <app-footer />
   </div>

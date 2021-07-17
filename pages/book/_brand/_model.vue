@@ -42,7 +42,7 @@ export default {
       const path = `/api/book/${this.$nuxt._route.params.brand}/${this.$nuxt._route.params.model}`;
       this.books = await this.$axios.$get(path);
     } catch (e) {
-      console.log(e)
+      throw new Error('Books not found');
     }
   },
   computed: {
