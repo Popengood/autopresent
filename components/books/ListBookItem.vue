@@ -28,6 +28,7 @@
     </div>
     
     <div v-html="book.description"></div>
+    <nuxt-link class="read-more" :to="`/${brand.parent}/${book.parent}/${book.url}`" title="Читать дальше">Читать далее</nuxt-link>
   </div>
 </template>
 
