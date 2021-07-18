@@ -56,6 +56,12 @@ h3,
 .preview h2 a:hover {
   border-bottom: 1px solid $color-base;
 }
+h4 {
+  font-weight: 400;
+  font-size: 17px;
+  color: #727272;
+  margin-bottom: 10px;
+}
 
 p {
   margin-bottom: 10px;
@@ -107,7 +113,6 @@ strong {
 
 .white-box {
   overflow: hidden;
-  margin-bottom: 31px;
   padding: 15px 20px 19px;
   border: solid 1px #e8e8d4;
   border-radius: 6px;
@@ -194,6 +199,13 @@ strong {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.mb0 {
+  margin-bottom: 0;
+}
+.mb20 {
+  margin-bottom: 20px;
 }
 
 @import '_header.scss';
@@ -398,7 +410,11 @@ tfoot td {
   }
 }
 
+/* main page */
 .main-info {
+  > div {
+    align-self: flex-start;
+  }
   .white-box {
     width: 52.3%;
     p:last-child {
@@ -411,4 +427,44 @@ tfoot td {
       margin-bottom: 17px;
     }
   }
+}
+/* inform page */
+.ordered-list {
+  margin-left: 35px;
+  li {
+    position: relative;
+    &:last-child p {
+      margin-bottom: 0;
+    }
+  }
+  > li + li {
+    margin-top: 20px;
+  }
+  span {
+    font-size: 30px;
+    color: #e86f0c;
+    position: absolute;
+    left: -35px;
+    top: 6px;
+  }
+}
+
+.delivery-box {
+  img {
+    width: 100px;
+    height: auto;
+    align-self: flex-start;
+    margin-right: 30px;
+  }
+}
+.delivery-box:not(:last-child) {
+  margin-bottom: 17px;
+}
+.contact-row {
+  b {
+    padding-right: 10px;
+  }
+}
+.contact-row:not(:last-child) {
+  margin-bottom: 5px;
 }
