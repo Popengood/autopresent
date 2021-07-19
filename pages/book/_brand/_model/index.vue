@@ -1,0 +1,57 @@
+<template>
+  <div>
+    <h1>Руководства по ремонту и эксплуатации {{ model.name }}.</h1>
+    <ListBookItem
+      v-for="book in books.books"
+      :key="book.id" 
+      :book="book" />
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex';
+export default {
+  /* validate({ params, store }) {
+    const validBrand = store.state.brands.some(brand => brand.parent === params.brand);
+    const validModel = store.state.brands.some(brand => brand.url === params.model);
+    if (!validBrand || !validModel) return false;
+    return true;
+  }, */
+  head() {
+    return {
+      title: `Руководства по ремонту и эксплуатации ${this.model.name}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.model.description,
+        },
+      ],
+    };
+  },
+  components: {
+    ListBookItem: () => import('~/components/books/ListBookItem'),
+  },
+  data() {
+    return {
+      books: [],
+    };
+  },
+  async fetch() {
+    try {
+      const path = `/api/book/${this.$nuxt._route.params.brand}/${this.$nuxt._route.params.model}`;
+      console.log('pathModel=', path);
+      this.books = await this.$axios.$get(path);
+    } catch (e) {
+      console.log('error=', e)
+      throw new Error('Books not found');
+    }
+  },
+  computed: {
+    ...mapGetters(['fetchBrand']),
+    model() {
+     return this.fetchBrand(this.$route.params.model);
+    },
+  },
+}
+</script>
