@@ -15,3 +15,19 @@ module.exports.fetchModels = async (req, res) => {
     // .then(() => pool.end())
     .catch(err => res.status(400).json(err));
 };
+
+module.exports.fetchBook = async (req, res) => {
+  const query =
+    "SELECT * FROM `tbl_article` WHERE url = '" +
+    req.params._book +
+    "' LIMIT 1";
+
+  await pool
+    .promise()
+    .execute(query)
+    .then(([row]) => {
+      res.json({ book: row });
+    })
+    // .then(() => pool.end())
+    .catch(err => res.status(400).json(err));
+};
