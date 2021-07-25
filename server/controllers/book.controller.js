@@ -9,9 +9,7 @@ module.exports.fetchModels = async (req, res) => {
   await pool
     .promise()
     .execute(query)
-    .then(([rows]) => {
-      res.json({ books: rows });
-    })
+    .then(([rows]) => res.json({ books: rows }))
     // .then(() => pool.end())
     .catch(err => res.status(400).json(err));
 };
@@ -25,9 +23,7 @@ module.exports.fetchBook = async (req, res) => {
   await pool
     .promise()
     .execute(query)
-    .then(([row]) => {
-      res.json({ book: row });
-    })
+    .then(([row]) => res.json({ book: row[0] }))
     // .then(() => pool.end())
     .catch(err => res.status(400).json(err));
 };

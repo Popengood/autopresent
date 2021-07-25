@@ -201,6 +201,10 @@ strong {
   opacity: 0;
 }
 
+.w100p {
+  width: 100%;
+}
+
 .mb0 {
   margin-bottom: 0;
 }
@@ -242,6 +246,7 @@ strong {
   margin-bottom: 20px;
 }
 .book-img {
+  align-self: flex-start;
   position: relative;
   margin-right: 20px;
   a {
@@ -265,6 +270,14 @@ strong {
   z-index: 5;
   background: url('~assets/img/newbook.png') no-repeat;
 }
+.book-data {
+  .title {
+    text-transform: uppercase;
+  }
+}
+.articul-row {
+  margin-bottom: 10px;
+}
 .book-price {
   width: 180px;
   align-items: flex-start;
@@ -282,9 +295,6 @@ strong {
     width: 100%;
     margin: 15px 0 5px;
   }
-}
-.articul-row {
-  margin-bottom: 10px;
 }
 .price {
   font-weight: 500;

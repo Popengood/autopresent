@@ -1,10 +1,7 @@
 <template>
   <div>
     <h1>Руководства по ремонту и эксплуатации {{ model.name }}.</h1>
-    <ListBookItem
-      v-for="book in books.books"
-      :key="book.id" 
-      :book="book" />
+    <ListBookItem v-for="book in books.books" :key="book.id" :book="book" />
   </div>
 </template>
 
@@ -12,8 +9,12 @@
 import { mapGetters } from 'vuex';
 export default {
   validate({ params, store }) {
-    const validBrand = store.state.brands.some(brand => brand.parent === params.brand);
-    const validModel = store.state.brands.some(brand => brand.url === params.model);
+    const validBrand = store.state.brands.some(
+      brand => brand.parent === params.brand
+    );
+    const validModel = store.state.brands.some(
+      brand => brand.url === params.model
+    );
     if (!validBrand || !validModel) return false;
     return true;
   },
@@ -35,11 +36,13 @@ export default {
   data() {
     return {
       books: [],
+      paramsBrand: this.$nuxt._route.params.brand,
+      paramsModel: this.$nuxt._route.params.model,
     };
   },
   async fetch() {
     try {
-      const path = `/api/book/${this.$nuxt._route.params.brand}/${this.$nuxt._route.params.model}`;
+      const path = `/api/book/${this.paramsBrand}/${this.paramsModel}`;
       this.books = await this.$axios.$get(path);
     } catch (e) {
       throw new Error('Books not found');
@@ -48,8 +51,8 @@ export default {
   computed: {
     ...mapGetters(['fetchBrand']),
     model() {
-     return this.fetchBrand(this.$route.params.model);
+      return this.fetchBrand(this.$route.params.model);
     },
   },
-}
+};
 </script>

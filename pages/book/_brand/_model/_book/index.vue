@@ -1,30 +1,30 @@
 <template>
-  <div>
-    <h1>Book</h1>
-    <!-- <ListBookItem
-      :book="book" /> -->
-    {{ book }}
+  <div class="w100p">
+    <AppBook :book="book" />
   </div>
 </template>
 
 <script>
 export default {
   components: {
-    ListBookItem: () => import('~/components/books/ListBookItem'),
+    AppBook: () => import('~/components/books/Book'),
   },
   data() {
     return {
-      book: [],
+      book: {},
+      paramsBrand: this.$nuxt._route.params.brand,
+      paramsModel: this.$nuxt._route.params.model,
+      paramsBook: this.$nuxt._route.params.book,
     };
   },
   async fetch() {
     try {
-      const path = `/api/book/${this.$nuxt._route.params.brand}/${this.$nuxt._route.params.model}/${this.$nuxt._route.params.book}`;
-      console.log('path=', path);
+      const path = `/api/book/${this.paramsBrand}/${this.paramsModel}/${this.paramsBook}`;
       this.book = await this.$axios.$get(path);
+      this.book = this.book.book;
     } catch (e) {
       throw new Error('Books not found');
     }
   },
-}
+};
 </script>
