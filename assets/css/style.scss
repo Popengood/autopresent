@@ -252,6 +252,9 @@ strong {
   a {
     display: block;
   }
+  > img {
+    cursor: zoom-in;
+  }
 }
 .img-sm {
   width: 137px;

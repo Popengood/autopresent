@@ -1,18 +1,23 @@
 <template>
   <div class="white-box preview">
     <h2>
-      <nuxt-link :to="`/book/${brand.parent}/${book.parent}/${book.url}`">{{
-        book.name
-      }}</nuxt-link>
+      <nuxt-link
+        :to="`/book/${brand.parent}/${book.parent}/${book.url}`"
+        :prefetch="false"
+        >{{ book.name }}</nuxt-link
+      >
     </h2>
     <div class="flex book">
       <div class="book-img">
         <nuxt-link
           v-if="book.novetly"
           :to="`/book/${brand.parent}/${book.parent}/${book.url}`"
+          :prefetch="false"
           class="newbook"
         ></nuxt-link>
-        <nuxt-link :to="`/book/${brand.parent}/${book.parent}/${book.url}`"
+        <nuxt-link
+          :to="`/book/${brand.parent}/${book.parent}/${book.url}`"
+          :prefetch="false"
           ><img
             :src="`${pathFiles}/${book.id}/${book.titlethumb}.jpg`"
             :alt="`${book.name}`"
@@ -28,6 +33,7 @@
     <nuxt-link
       class="read-more"
       :to="`/book/${brand.parent}/${book.parent}/${book.url}`"
+      :prefetch="false"
       title="Читать дальше"
       >Читать далее</nuxt-link
     >

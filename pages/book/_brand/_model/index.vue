@@ -9,11 +9,9 @@
 import { mapGetters } from 'vuex';
 export default {
   validate({ params, store }) {
-    const validateParams = store.state.brands.some(
+    return store.state.brands.some(
       brand => brand.parent === params.brand && brand.url === params.model
     );
-    if (!validateParams) return false;
-    return true;
   },
   head() {
     return {

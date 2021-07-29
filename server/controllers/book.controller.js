@@ -18,6 +18,8 @@ module.exports.fetchBook = async (req, res) => {
   const query =
     "SELECT * FROM `tbl_article` WHERE url = '" +
     req.params._book +
+    "' AND parent = '" +
+    req.params._model +
     "' LIMIT 1";
 
   await pool
@@ -25,5 +27,5 @@ module.exports.fetchBook = async (req, res) => {
     .execute(query)
     .then(([row]) => res.json({ book: row[0] }))
     // .then(() => pool.end())
-    .catch(err => res.status(400).json(err));
+    .catch(err => res.status(404).json(err));
 };

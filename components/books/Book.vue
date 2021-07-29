@@ -8,6 +8,7 @@
           <img
             :src="`${pathFiles}/${book.id}/${book.titlethumb}.jpg`"
             :alt="`${book.name}`"
+            :data-src="`${pathFiles}/${book.id}/${book.titlethumb}_b.jpg`"
             class="img-lg"
           />
         </div>
@@ -36,6 +37,7 @@ export default {
   data() {
     return {
       pathFiles: 'http://www.autopresent.ru/files',
+      thumb: null,
     };
   },
   props: {
@@ -47,6 +49,15 @@ export default {
   components: {
     BookPrice: () => import('~/components/books/BookPrice'),
     BookData: () => import('~/components/books/BookData'),
+  },
+  mounted() {
+    this.thumb = this.$el.querySelector('.book-img img');
+    this.thumb.addEventListener('click', this.showCover);
+  },
+  methods: {
+    showCover() {
+      console.log('showCover');
+    },
   },
 };
 </script>
