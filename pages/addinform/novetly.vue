@@ -1,10 +1,7 @@
 <template>
   <div class="content">
     <h1>Новинки автолитературы по ремонту и эксплуатации автомобилей.</h1>
-    <ListBookItem
-      v-for="book in books.books"
-      :key="book.id" :book="book"
-    />
+    <ListBookItem v-for="book in books" :key="book.id" :book="book" />
   </div>
 </template>
 
@@ -13,7 +10,7 @@ export default {
   data() {
     return {
       books: [],
-    }
+    };
   },
   head() {
     return {
@@ -22,21 +19,22 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Новые руководства по ремонту. Новинки издательств литературы по ремонту и эксплуатации автомобилей.',
+          content:
+            'Новые руководства по ремонту. Новинки издательств литературы по ремонту и эксплуатации автомобилей.',
         },
       ],
     };
   },
   async fetch() {
     try {
-      this.books = await this.$axios.$get('/api/addinform/novetly');
+      const res = await this.$axios.$get('/api/addinform/novetly');
+      this.books = res.books;
     } catch (e) {
-      console.error(e);
-      throw e;
+      throw new Error('Book novetly not found');
     }
   },
   components: {
     ListBookItem: () => import('~/components/books/ListBookItem'),
-  }
-}
+  },
+};
 </script>

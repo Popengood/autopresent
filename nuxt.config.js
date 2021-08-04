@@ -11,6 +11,13 @@ module.exports = {
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    /* script: [
+      {
+        src: '/js/function.js',
+        type: 'text/javascript',
+        async: true,
+      },
+    ], */
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -20,7 +27,7 @@ module.exports = {
   plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  // components: true,
+  components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [],

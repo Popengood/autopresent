@@ -1,6 +1,17 @@
 @import '_reset.scss';
 @import '_variables.scss';
 
+@mixin fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: $transition;
+}
+
 body,
 button,
 input,
@@ -235,6 +246,15 @@ strong {
   width: 100%;
 }
 
+.title-row {
+  h2 {
+    margin-bottom: 0;
+  }
+  .link {
+    margin: 2px 0 0 auto;
+  }
+}
+
 .preview {
   margin-bottom: 19px;
   &:last-child {
@@ -252,9 +272,6 @@ strong {
   a {
     display: block;
   }
-  > img {
-    cursor: zoom-in;
-  }
 }
 .img-sm {
   width: 137px;
@@ -263,6 +280,9 @@ strong {
 .img-lg {
   width: 165px;
   height: auto;
+}
+.img-zoom {
+  cursor: zoom-in;
 }
 .newbook {
   width: 74px;
@@ -276,6 +296,7 @@ strong {
 .book-data {
   .title {
     text-transform: uppercase;
+    margin-bottom: 5px;
   }
 }
 .articul-row {
@@ -419,7 +440,7 @@ tfoot td {
     position: absolute;
     top: 50%;
     transform: translate(-66px, -50%);
-    background: url(~assets/img/ahtung.png) no-repeat;
+    background: url('~assets/img/ahtung.png') no-repeat;
   }
 }
 
@@ -441,6 +462,104 @@ tfoot td {
     }
   }
 }
+
+/* gallery */
+.title-row_gallery {
+  margin-bottom: 14px;
+}
+.white-box_gallery {
+  padding: 20px 22px;
+}
+.gallery {
+  width: 100%;
+  position: relative;
+  visibility: hidden;
+  margin: 0 auto;
+  .control {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 1;
+  }
+}
+.slider {
+  width: 100%;
+  max-width: 765px;
+  position: relative;
+  z-index: 5;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.stage {
+  overflow: hidden;
+  img {
+    width: 137px;
+    height: 190px;
+  }
+  .price-row {
+    text-align: center;
+    margin: 13px 0 0;
+  }
+}
+.nav-ctrl {
+  span {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    border-radius: 100%;
+    background-color: #e6ad54;
+    cursor: pointer;
+    transition: $transition;
+    &:before {
+      width: 9px;
+      height: 15px;
+      display: block;
+      content: '';
+      margin: auto;
+    }
+    &:hover {
+      background-color: #f2b85e;
+    }
+    &:active {
+      background-color: #e8af56;
+    }
+  }
+  .prev {
+    padding-right: 2px;
+    &:before {
+      background: url('~assets/img/arrow-left.svg') no-repeat;
+    }
+  }
+  .next {
+    padding-left: 2px;
+    &:before {
+      background: url('~assets/img/arrow-right.svg') no-repeat;
+    }
+  }
+  .disable {
+    cursor: default;
+    background-color: #e6ad54;
+    opacity: 0.3;
+    &:hover,
+    &:active {
+      background-color: #e6ad54;
+    }
+  }
+  .icon-ctrl {
+    width: 9px;
+    height: 15px;
+    display: block;
+    margin: auto;
+  }
+  .icon-prev {
+    background: url('assets/img/arrow-left.svg');
+  }
+  .icon-next {
+    background: url('assets/img/arrow-right.svg');
+  }
+}
+
 /* inform page */
 .ordered-list {
   margin-left: 35px;
@@ -461,7 +580,6 @@ tfoot td {
     top: 6px;
   }
 }
-
 .delivery-box {
   img {
     width: 100px;
@@ -481,3 +599,5 @@ tfoot td {
 .contact-row:not(:last-child) {
   margin-bottom: 5px;
 }
+
+@import '_popup.scss';
