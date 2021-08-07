@@ -1,10 +1,7 @@
 <template>
   <div>
     <h1>Бестселлеры</h1>
-    <ListBookItem
-      v-for="book in books.books"
-      :key="book.id" :book="book"
-    />
+    <ListBookItem v-for="book in books.books" :key="book.id" :book="book" />
   </div>
 </template>
 
@@ -22,7 +19,8 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Самые популярные руководства по ремонту автомобилей. Лидеры продаж за последние 7 дней',
+          content:
+            'Самые популярные руководства по ремонту автомобилей. Лидеры продаж за последние 7 дней',
         },
       ],
     };
@@ -37,6 +35,6 @@ export default {
   },
   components: {
     ListBookItem: () => import('~/components/books/ListBookItem'),
-  }
-}
+  },
+};
 </script>

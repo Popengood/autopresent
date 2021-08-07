@@ -30,7 +30,6 @@ module.exports.fetchArticul = async (req, res, next) => {
 };
 
 module.exports.fetchBeastsellers = async (req, res) => {
-  const list = req.articuls;
   const query =
     'SELECT * FROM `tbl_article` WHERE `articul` IN (' + req.articuls + ')';
 

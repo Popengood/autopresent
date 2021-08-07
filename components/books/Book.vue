@@ -24,7 +24,7 @@
         <BookData :book="book" :pathFiles="pathFiles" :isbook="true" />
         <BookPrice :book="book" />
       </div>
-      <div v-html="text"></div>
+      <div v-html="txt"></div>
     </div>
 
     <slot v-if="book.instock_tmb">
@@ -48,7 +48,6 @@
 </template>
 
 <script>
-// import text from 'raw-loader!http://www.autopresent.ru/files/1823/content.tpl';
 export default {
   head() {
     return {
@@ -69,9 +68,8 @@ export default {
       isFadeIn: false,
       isFadeOut: false,
       status: false,
-      text: '<p>fggdfgdfg</p>',
-      // text: () => import(`${pathFiles}/${book.id}/content.tpl`),
-      // text: () => import('http://www.autopresent.ru/files/1823/content.tpl'),
+      txt: 'dfsdfsdfsdf sfdfsdfsdfsd sfdsdfsd',
+      url: 'http://www.autopresent.ru/files/1823/content.tpl',
     };
   },
   props: {
