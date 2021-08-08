@@ -1,16 +1,18 @@
 <template>
   <div>
     <h1>Бестселлеры</h1>
-    <ListBookItem v-for="book in books.books" :key="book.id" :book="book" />
+    <ListBookItem v-for="book in books" :key="book.id" :book="book" />
   </div>
 </template>
 
 <script>
+import leaders from 'raw-loader!@/static/lider.txt';
 export default {
   data() {
     return {
+      leaders,
       books: [],
-    }
+    };
   },
   head() {
     return {
@@ -27,7 +29,10 @@ export default {
   },
   async fetch() {
     try {
-      this.books = await this.$axios.$get('/api/addinform/bestsellers');
+      const res = await this.$axios.$get('/api/addinform/bestsellers', {
+        params: { leaders: this.leaders },
+      });
+      this.books = res.books;
     } catch (e) {
       console.error(e);
       throw e;

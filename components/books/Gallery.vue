@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="mb31">
     <div class="flex title-row title-row_gallery">
-      <h2>Новинки автолитературы.</h2>
+      <h2>Новинки автолитературы</h2>
       <nuxt-link class="link" to="/addinform/novetly"
         >Все новинки автолитературы</nuxt-link
       >

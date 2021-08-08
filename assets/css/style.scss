@@ -222,6 +222,9 @@ strong {
 .mb20 {
   margin-bottom: 20px;
 }
+.mb31 {
+  margin-bottom: 31px;
+}
 
 @import '_header.scss';
 @import '_aside.scss';
@@ -468,7 +471,7 @@ tfoot td {
   margin-bottom: 14px;
 }
 .white-box_gallery {
-  padding: 20px 22px;
+  padding: 20px 22px 15px;
 }
 .gallery {
   width: 100%;
@@ -557,6 +560,14 @@ tfoot td {
   }
   .icon-next {
     background: url('assets/img/arrow-right.svg');
+  }
+}
+
+/* bestsellers gallery */
+.best-gallery {
+  img {
+    width: 143px;
+    height: 198px;
   }
 }
 
