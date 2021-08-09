@@ -26,11 +26,11 @@
   li + li {
     margin-left: 20px;
     padding-left: 20px;
-    border-left: solid 1px #758288;
+    border-left: solid 1px $color-link-gray;
   }
   a {
     font-size: 14px;
-    color: #758288;
+    color: $color-link-gray;
     text-decoration: none;
     text-transform: uppercase;
     &:hover,
