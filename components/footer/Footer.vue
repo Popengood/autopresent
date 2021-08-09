@@ -5,7 +5,7 @@
         <nuxt-link class="footer-brand" to="/">AutoPresent</nuxt-link>
         <div class="copyright-row">
           Copyright © 2006-<span>{{ year }}</span
-          >, г. Санкт-Петербург
+          >, Санкт-Петербург
         </div>
       </div>
       <div class="contacts-col">

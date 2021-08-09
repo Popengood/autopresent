@@ -2,12 +2,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tpl$/i,
+        test: /\.txt$/i,
         use: 'raw-loader',
       },
       {
-        test: /\.txt$/i,
-        use: 'raw-loader',
+        test: /node_modules[\/\\](iconv-lite)[\/\\].+/,
+        resolve: {
+          aliasFields: ['main'],
+        },
       },
     ],
   },

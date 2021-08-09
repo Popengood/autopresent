@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ book.name }}</h1>
-    <div class="white-box preview">
+    <div class="white-box">
       <div class="flex book">
         <div class="book-img">
           <span v-if="book.novetly" class="newbook"></span>
@@ -24,7 +24,7 @@
         <BookData :book="book" :pathFiles="pathFiles" :isbook="true" />
         <BookPrice :book="book" />
       </div>
-      <div v-html="txt"></div>
+      <div class="description" v-html="description"></div>
     </div>
 
     <slot v-if="book.instock_tmb">
@@ -48,6 +48,8 @@
 </template>
 
 <script>
+const iconv = require('iconv-lite');
+
 export default {
   head() {
     return {
@@ -63,14 +65,28 @@ export default {
   },
   data() {
     return {
-      pathFiles: 'http://www.autopresent.ru/files',
+      pathFiles: 'http://autopresent/files',
       thumb: null,
       isFadeIn: false,
       isFadeOut: false,
       status: false,
-      txt: 'dfsdfsdfsdf sfdfsdfsdfsd sfdsdfsd',
-      url: 'http://www.autopresent.ru/files/1823/content.tpl',
+      description: '',
     };
+  },
+  async fetch() {
+    try {
+      const res = await this.$axios.$get(
+        `${this.pathFiles}/${this.book.id}/content.tpl`,
+        {
+          responseType: 'arraybuffer',
+          responseEncoding: 'binary',
+        }
+      );
+      const text = new Buffer(res, 'binary');
+      this.description = iconv.decode(Buffer.from(text), 'win1251');
+    } catch (e) {
+      throw new Error("Book's description not found", e);
+    }
   },
   props: {
     book: {

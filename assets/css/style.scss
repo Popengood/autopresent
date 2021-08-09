@@ -346,6 +346,18 @@ strong {
   padding: 22px 25px 10px;
   background: #fff url('~assets/img/noinstock.png') no-repeat center;
 }
+.description {
+  h3 {
+    margin-top: 18px;
+  }
+  iframe {
+    display: block;
+    margin: 0 auto;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
 
 .tabcart {
   width: 100%;

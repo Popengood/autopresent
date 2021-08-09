@@ -53,6 +53,8 @@ module.exports = {
       config.node = {
         fs: 'empty',
         tls: 'empty',
+        child_process: 'empty',
+        iconv: 'empty',
       };
     },
   },
