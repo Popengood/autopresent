@@ -2,7 +2,11 @@
   <tr>
     <td class="thumb">
       <nuxt-link :to="`/catalog/${book.url}`">
-        <img class="img-sm" :src="`${pathFiles}/${book.id}/${book.titlethumb}.jpg`" alt="" />
+        <img
+          class="img-sm"
+          :src="`${$config.pathFiles}/${book.id}/${book.titlethumb}.jpg`"
+          alt=""
+        />
       </nuxt-link>
     </td>
     <td>
@@ -28,11 +32,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      pathFiles: 'http://www.autopresent.ru/files',
-    }
-  },
   props: {
     book: {
       type: Object,

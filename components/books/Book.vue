@@ -8,20 +8,20 @@
           <img
             v-if="book.instock_tmb"
             ref="thumb"
-            :src="`${pathFiles}/${book.id}/${book.titlethumb}.jpg`"
+            :src="`${$config.pathFiles}/${book.id}/${book.titlethumb}.jpg`"
             :alt="`${book.name}`"
             @click="showCover"
             class="img-lg img-zoom"
           />
           <img
             v-else
-            :src="`${pathFiles}/${book.id}/${book.titlethumb}.jpg`"
+            :src="`${$config.pathFiles}/${book.id}/${book.titlethumb}.jpg`"
             :alt="`${book.name}`"
             class="img-lg"
           />
         </div>
 
-        <BookData :book="book" :pathFiles="pathFiles" :isbook="true" />
+        <BookData :book="book" :pathFiles="$config.pathFiles" :isbook="true" />
         <BookPrice :book="book" />
       </div>
       <div class="description" v-html="description"></div>
@@ -40,7 +40,7 @@
         <span class="flex closer" @click="hideCover">×</span>
         <img
           class="img-cover"
-          :src="`${pathFiles}/${book.id}/${book.titlethumb}_b.jpg`"
+          :src="`${$config.pathFiles}/${book.id}/${book.titlethumb}_b.jpg`"
         />
       </div>
     </slot>
@@ -49,7 +49,6 @@
 
 <script>
 const iconv = require('iconv-lite');
-
 export default {
   head() {
     return {
@@ -65,7 +64,6 @@ export default {
   },
   data() {
     return {
-      pathFiles: 'http://autopresent/files',
       thumb: null,
       isFadeIn: false,
       isFadeOut: false,
@@ -76,13 +74,13 @@ export default {
   async fetch() {
     try {
       const res = await this.$axios.$get(
-        `${this.pathFiles}/${this.book.id}/content.tpl`,
+        `${this.$config.pathFiles}/${this.book.id}/content.tpl`,
         {
           responseType: 'arraybuffer',
           responseEncoding: 'binary',
         }
       );
-      const text = new Buffer(res, 'binary');
+      const text = new Buffer.from(res, 'binary');
       this.description = iconv.decode(Buffer.from(text), 'win1251');
     } catch (e) {
       throw new Error("Book's description not found", e);

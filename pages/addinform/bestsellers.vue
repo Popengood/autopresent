@@ -34,8 +34,7 @@ export default {
       });
       this.books = res.books;
     } catch (e) {
-      console.error(e);
-      throw e;
+      throw new Error('Book bestsellers not found');
     }
   },
   components: {

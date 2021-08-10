@@ -19,7 +19,7 @@
           :to="`/book/${brand.parent}/${book.parent}/${book.url}`"
           :prefetch="false"
           ><img
-            :src="`${pathFiles}/${book.id}/${book.titlethumb}.jpg`"
+            :src="`${$config.pathFiles}/${book.id}/${book.titlethumb}.jpg`"
             :alt="`${book.name}`"
             class="img-sm"
         /></nuxt-link>
@@ -43,11 +43,6 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
-  data() {
-    return {
-      pathFiles: 'http://www.autopresent.ru/files',
-    };
-  },
   props: ['book'],
   components: {
     BookPrice: () => import('~/components/books/BookPrice'),

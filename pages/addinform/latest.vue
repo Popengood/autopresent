@@ -1,10 +1,7 @@
 <template>
   <div>
     <h1>Последние поступления</h1>
-    <ListBookItem
-      v-for="book in books.books"
-      :key="book.id" :book="book"
-    />
+    <ListBookItem v-for="book in books.books" :key="book.id" :book="book" />
   </div>
 </template>
 
@@ -13,7 +10,7 @@ export default {
   data() {
     return {
       books: [],
-    }
+    };
   },
   head() {
     return {
@@ -31,12 +28,11 @@ export default {
     try {
       this.books = await this.$axios.$get('/api/addinform/latest');
     } catch (e) {
-      console.error(e);
-      throw e;
+      throw new Error('Book latest not found');
     }
   },
   components: {
     ListBookItem: () => import('~/components/books/ListBookItem'),
-  }
-}
+  },
+};
 </script>

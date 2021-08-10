@@ -11,7 +11,7 @@
       <div class="contacts-col">
         Телефон: +7 (921) 303-96-06 (г. Cанкт-Петербург),<br />
         Skype: autopresent,<br />
-        E-mail:<a href="mailto:admin@autopresent.ru">admin@autopresent.ru</a>
+        E-mail: <a href="mailto:admin@autopresent.ru">admin@autopresent.ru</a>
       </div>
     </div>
   </div>

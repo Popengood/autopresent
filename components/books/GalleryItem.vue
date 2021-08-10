@@ -5,7 +5,7 @@
       :prefetch="false"
     >
       <img
-        :src="`${pathFiles}/${book.id}/${book.titlethumb}.jpg`"
+        :src="`${$config.pathFiles}/${book.id}/${book.titlethumb}.jpg`"
         :alt="`${book.name}`"
       />
     </nuxt-link>
@@ -20,7 +20,6 @@ import { mapGetters } from 'vuex';
 export default {
   data() {
     return {
-      pathFiles: 'http://www.autopresent.ru/files',
       isStripeLoaded: false,
     };
   },
