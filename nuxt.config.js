@@ -16,7 +16,14 @@ module.exports = {
           'Руководства по ремонту, эксплуатации, руководства по техническому обслуживанию автомобилей. Электросхемы и каталоги запчастей.',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'Roboto',
+        href:
+          'https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic',
+      },
+    ],
     /* script: [
       {
         src: '/js/function.js',
@@ -60,4 +67,8 @@ module.exports = {
   },
 
   telemetry: false,
+
+  publicRuntimeConfig: {
+    pathFiles: 'http://autopresent/files',
+  },
 };
