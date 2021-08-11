@@ -3,11 +3,16 @@
     <div class="white-box">
       <div class="flex ai-center jc-center title">Каталог автолитературы</div>
       <ul class="aside-menu">
-        <li v-for="brand of brands" :key="brand.id">          
+        <li v-for="brand of brands" :key="brand.id">
           <span
             @click="activeLink"
-            :class="{ active: $nuxt._route.params.brand == brand.url }">
-              {{ brand.name }}
+            :class="{
+              active:
+                $nuxt._route.params.brand &&
+                $nuxt._route.params.brand == brand.url,
+            }"
+          >
+            {{ brand.name }}
           </span>
           <app-submenu :parent="brand.url" />
         </li>
@@ -43,6 +48,9 @@ export default {
       return this.fetchBrands('leftmenu');
     },
   },
+  updated() {
+    this.showSubnemu();
+  },
   mounted() {
     this.links = this.$el.querySelectorAll('.aside-menu span');
     this.showSubnemu();
@@ -50,7 +58,9 @@ export default {
   methods: {
     showSubnemu() {
       for (let link of this.links) {
-        link.nextElementSibling.hidden = link.classList.contains('active') ? false : true;
+        link.nextElementSibling.hidden = link.classList.contains('active')
+          ? false
+          : true;
       }
     },
     activeLink(e) {
@@ -70,5 +80,5 @@ export default {
       }
     },
   },
-}
+};
 </script>
