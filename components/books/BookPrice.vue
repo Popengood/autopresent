@@ -1,12 +1,18 @@
 <template>
   <div class="book-price" :class="{ noinstock: !book.instock }">
-    <p>Цена: <span class="price">{{ book.price }}</span> руб.<br />
+    <p>
+      Цена: <span class="price">{{ book.price }}</span> руб.<br />
+    </p>
 
     <div v-if="book.instock == 1">
       <p>Наличие: <span class="success">На складе</span></p>
-      <button class="btn btn-danger" @click="createOrder">
+      <router-link
+        class="btn btn-danger"
+        @click="createOrder"
+        to="/service/order"
+      >
         Купить в 1 клик
-      </button>
+      </router-link>
       <div>
         или<br />
         <span class="link" @click="addCart(book.id)">Положить в корзину</span>
@@ -62,5 +68,5 @@ export default {
       this.$store.dispatch('cart/setLocalStorage', goods);
     },
   },
-}
+};
 </script>

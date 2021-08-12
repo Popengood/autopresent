@@ -148,6 +148,7 @@ strong {
   transition: $transition;
 }
 .btn:hover {
+  color: #fff;
   text-decoration: none;
 }
 
@@ -228,7 +229,6 @@ strong {
 
 @import '_header.scss';
 @import '_aside.scss';
-@import '_footer.scss';
 
 .container {
   grid-area: container;
@@ -624,3 +624,5 @@ tfoot td {
 }
 
 @import '_popup.scss';
+@import '_form.scss';
+@import '_footer.scss';
