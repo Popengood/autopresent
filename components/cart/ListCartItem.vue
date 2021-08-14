@@ -1,7 +1,7 @@
 <template>
   <tr>
     <td class="thumb">
-      <nuxt-link :to="`/catalog/${book.url}`">
+      <nuxt-link :to="`/book/${brand.parent}/${book.parent}/${book.url}`">
         <img
           class="img-sm"
           :src="`${$config.pathFiles}/${book.id}/${book.titlethumb}.jpg`"
@@ -10,7 +10,9 @@
       </nuxt-link>
     </td>
     <td>
-      <nuxt-link :to="`/catalog/${book.url}`">{{ book.name }}</nuxt-link>
+      <nuxt-link :to="`/book/${brand.parent}/${book.parent}/${book.url}`">{{
+        book.name
+      }}</nuxt-link>
     </td>
     <td>{{ book.articul }}</td>
     <td>{{ book.price }}</td>
@@ -31,17 +33,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
-  props: {
-    book: {
-      type: Object,
-      required: true,
-    },
-    index: {
-      type: Number,
-    },
-  },
+  props: ['book', 'index'],
   computed: {
+    ...mapGetters(['fetchBrand']),
+    brand() {
+      return this.fetchBrand(this.book.parent);
+    },
     sum() {
       return this.book.price * this.book.quantity;
     },
