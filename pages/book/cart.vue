@@ -32,7 +32,11 @@
           </tr>
         </tfoot>
       </table>
-      <button type="submit" class="btn btn-success btn-sm mr-3">
+      <button
+        type="submit"
+        class="btn btn-success btn-sm mr-3"
+        @click="createOrder"
+      >
         Оформить заказ
       </button>
       <button class="btn btn-secondary btn-sm" @click="removeCart">
@@ -91,8 +95,8 @@ export default {
         data.quantity.push(book.quantity);
         data.price.push(book.price);
       }
-      localStorage.setItem('order', JSON.stringify(data));
-      this.$router.push({ name: 'order' });
+      localStorage.setItem('databook', JSON.stringify(data));
+      this.$router.push({ path: '/service/order', query: { source: 'cart' } });
     },
   },
 };
