@@ -32,10 +32,18 @@
           </tr>
         </tfoot>
       </table>
-      <button type="submit" class="btn btn-success btn-sm mr-3">
+      <button
+        type="submit"
+        class="btn btn-success btn-sm mr-3"
+        @click="createOrder"
+      >
         Оформить заказ
       </button>
-      <button class="btn btn-secondary btn-sm" @click="removeCart">
+      <button
+        type="button"
+        class="btn btn-secondary btn-sm"
+        @click="removeCart"
+      >
         Очистить корзину
       </button>
     </form>
