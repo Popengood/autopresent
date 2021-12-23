@@ -24,13 +24,13 @@ module.exports = {
           'https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic',
       },
     ],
-    /* script: [
+    script: [
       {
         src: '/js/function.js',
         type: 'text/javascript',
         async: true,
       },
-    ], */
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
