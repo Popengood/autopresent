@@ -61,6 +61,11 @@ export default {
       title: 'Корзина покупателя',
     };
   },
+  data() {
+    return {
+      t: Number,
+    };
+  },
   components: {
     ListCartItem: () => import('~/components/cart/ListCartItem'),
   },
@@ -69,10 +74,11 @@ export default {
       goods: state => state.cart.goods,
     }),
     total() {
-      return this.goods.reduce(
+      this.t = this.goods.reduce(
         (accum, book) => accum + book.price * book.quantity,
         0
       );
+      return this.t;
     },
   },
   methods: {
@@ -90,17 +96,18 @@ export default {
         name: [],
         articul: [],
         quantity: [],
-        price: [],
+        price: 0,
       };
       const goods = JSON.parse(localStorage.getItem('cart'));
       for (let book of goods) {
         data.name.push(book.name);
         data.articul.push(book.articul);
         data.quantity.push(book.quantity);
-        data.price.push(book.price);
       }
-      localStorage.setItem('order', JSON.stringify(data));
-      this.$router.push({ name: 'order' });
+      data.price = this.t;
+
+      localStorage.setItem('databook', JSON.stringify(data));
+      this.$router.push({ path: '/service/order', query: { source: 'cart' } });
     },
   },
 };

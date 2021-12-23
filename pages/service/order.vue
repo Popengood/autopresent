@@ -1,6 +1,9 @@
 <template>
   <div class="w100p">
     <h1>Оформление заказа</h1>
+    <OrderInfoBook v-if="this.source === 'book'" :dataBook="dataBook" />
+    <OrderInfoCart v-else-if="this.source === 'cart'" :dataBook="dataBook" />
+
     <div class="flex white-box">
       <form id="form_order" class="form" novalidate="true">
         <div class="form-row">
@@ -131,7 +134,20 @@ export default {
       tel: '',
       email: '',
       comment: '',
+      dataBook: '',
+      source: this.$nuxt._route.query.source,
     };
+  },
+  components: {
+    OrderInfoBook: () => import('~/components/books/orderInfoBook'),
+    OrderInfoCart: () => import('~/components/cart/orderInfoCart'),
+  },
+  mounted() {
+    if (this.source === 'book' || this.source === 'cart') {
+      this.dataBook = JSON.parse(localStorage.getItem('databook'));
+    } else {
+      this.$nuxt.error({ statusCode: 404 });
+    }
   },
 };
 </script>
