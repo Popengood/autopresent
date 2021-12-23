@@ -6,9 +6,13 @@
 
     <div v-if="book.instock == 1">
       <p>Наличие: <span class="success">На складе</span></p>
-      <button type="button" class="btn btn-danger" @click="createOrder">
+      <router-link
+        class="btn btn-danger"
+        @click="createOrder"
+        to="/service/order"
+      >
         Купить в 1 клик
-      </button>
+      </router-link>
       <div>
         или<br />
         <span class="link" @click="addCart(book.id)">Положить в корзину</span>
@@ -35,18 +39,17 @@ export default {
         price: this.book.price,
         quantity: 1,
       };
-      localStorage.setItem('databook', JSON.stringify(data));
-      this.$router.push({ path: '/service/order', query: { source: 'book' } });
+      localStorage.setItem('order', JSON.stringify(data));
+      this.$router.push({ name: 'order' });
     },
     addCart(id) {
       const data = {
-        id: id || null,
+        id,
         name: this.book.name,
         url: this.book.url,
         articul: this.book.articul,
         titlethumb: this.book.titlethumb,
         price: this.book.price,
-        parent: this.book.parent,
         quantity: 1,
       };
       let isBook = false;
