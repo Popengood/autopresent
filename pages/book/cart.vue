@@ -96,7 +96,6 @@ export default {
         name: [],
         articul: [],
         quantity: [],
-        price: 0,
       };
       const goods = JSON.parse(localStorage.getItem('cart'));
       for (let book of goods) {
