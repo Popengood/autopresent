@@ -46,11 +46,15 @@ module.exports = {
   buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/pwa'],
+
+  pwa: {
+    icon: false, // disables the icon module
+  },
 
   axios: {},
 
-  enerate: {
+  generate: {
     fallback: true,
   },
 
@@ -67,6 +71,7 @@ module.exports = {
   },
 
   telemetry: false,
+  target: 'static',
 
   publicRuntimeConfig: {
     pathFiles: 'http://autopresent/files',

@@ -18,6 +18,7 @@
     "nuxt": "^2.15.3"
   },
   "devDependencies": {
+    "@nuxtjs/pwa": "^3.3.5",
     "cardinal": "^2.1.1",
     "cross-env": "^7.0.3",
     "iconv-lite": "^0.6.3",

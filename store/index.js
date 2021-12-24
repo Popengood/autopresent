@@ -18,7 +18,7 @@ export const actions = {
       .promise()
       .query(query)
       .then(([rows]) => commit('setBrands', rows))
-      .then(() => pool.end())
+      // .then(() => pool.end())
       .catch(err => console.log(err));
   },
 };
